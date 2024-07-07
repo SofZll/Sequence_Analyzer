@@ -1,0 +1,4 @@
+This is just a wrong file extension for debugging and trial.
+As Obi Wan Kenobi said:
+"Use the fasta"
+Or something like that, I don't remember.

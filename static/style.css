@@ -1,0 +1,372 @@
+
+.sequence_dna, .sequence_mrna, .sequence_aa{
+    width: 80%;
+    max-height: 300px;
+    overflow-wrap: break-word;
+    overflow-y: scroll;
+    border: 2px solid #2c5830;
+    padding: 5px;
+}
+
+.sequence_dna, .sequence_aa{
+    margin-bottom: 30px;
+}
+
+.chart{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.box_dna, .box_mrna, .box_aa{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box_mrna{
+    display: none;
+}
+
+.box_dna, .box_aa{
+    padding-top: 90px;
+}
+
+.nav{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background-color: #dadbdc;
+    margin: 0;
+    justify-content: space-between;
+    position: fixed;
+    border-bottom: #2c5830 1.2px solid;
+}
+
+.box_hide_btn{
+    display: flex;
+    align-items: start;
+    width: 80%;
+}
+
+.stats_dna{
+    width: 20%;
+    font-size: 1.15rem;
+}
+
+li{
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.chart_pic{
+    width: 40%;
+}
+
+body{
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.a_nav{
+    padding: 10px;
+    margin: 8px;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.2rem;
+}
+
+a{
+    text-decoration: none;
+    color: #2c5830;
+    font-size: 1.2rem;
+}
+
+a:hover{
+    opacity: 0.8;
+}
+
+h1, h3{
+    color: #2c5830;
+}
+
+.sequence_aa h3{
+    margin-left: 30px;
+}
+
+.title_home{
+    width: 80%;
+    color: #2c5830;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 90px;
+}
+
+.title_home h1{
+    font-size: 5rem;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.btn_home_select{
+    border: 1.2px solid #2c5830;
+    background-color: #FEFEFE;
+    color: #2c5830;
+    border-radius: 8px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.form_btn{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    height: 200px;
+    justify-content: space-around;
+}
+
+.btn_home_select:hover {
+    opacity: 0.8;
+}
+
+.btn_home_select:active {
+    background-color: #2c5830;
+    color: #FEFEFE;
+    border-color: #FEFEFE;
+}
+
+.selected_file, .select_mrna{
+    background-color: #dadbdc;
+    border: unset;
+    color: #2c5830;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.select_mrna{
+    font-size: 1.3rem;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+    
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.box_home{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.select_file{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.btn_analyzer, .btn_transc, .btn_hide{
+    border-radius: 8px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn_analyzer{
+    border: 1.2px solid #dadbdc;
+    color: #dadbdc;
+    background-color: #2c5830;
+    height: 20%;
+}
+    
+.btn_transc, .btn_hide{
+    background-color: #dadbdc;
+    border: 1.2px solid #2c5830;
+    color: #2c5830;
+    width: 140px;
+    align-content: center;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+.btn_analyzer:hover, .btn_transc:hover {
+    opacity: 0.8;
+}
+
+.btn_hide{
+    margin-bottom: 30px;
+    margin-left: 40px;
+}
+
+
+.btn_left_nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+}
+
+.btn_left_nav a{
+    font-size: 1.2rem;
+}
+
+.box_chainAA{
+    display: flex;
+    flex-direction: row;
+    align-items:start;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.box_list_oligos, .box_list_proteins{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box_btn_oligo, .box_btn_protein{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.btn_on, .btn_off{
+    border-radius: 8px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px;
+    width: 35%;
+    text-align: center;
+}
+
+.btn_on{
+    background-color: #2c5830;
+    border: 1.2px solid #dadbdc;
+    color: #dadbdc;
+}
+
+.btn_off{
+    border: 1.2px solid #2c5830;
+    color: #2c5830;
+    background-color: #dadbdc;
+}
+
+.btn_on:hover, .btn_off:hover {
+    opacity: 0.8;
+}
+
+#names_proteins_descending, #names_oligos_descending{
+    display: none;
+}
+
+#names_proteins_ascending, #names_oligos_ascending{
+    display: block;
+}
+
+#names_oligos_ascending, #names_oligos_descending,
+#names_proteins_ascending, #names_proteins_descending{
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    overflow-y: scroll;
+    border: #2c5830 2px solid;
+    padding: 5px;
+}
+
+.title_aa_rna{
+    background-color: #dadbdc;
+    border-radius: 8px;
+    margin: 5px;
+    padding: 15px 21px;
+    border: #2c5830 1.2px solid;
+}
+
+
+.selection_code_protein, .selection_code_oligo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#select_oligo, #select_protein{
+    margin-left: 5px;
+    font-size: 1rem;
+    overflow-wrap: break-word;
+    width: 50%;
+    padding: 5px;
+}
+
+.label_scroll{
+    color: #2c5830;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.scroll_protein, .scroll_oligo{
+    width: 100%;
+    height: 150px;
+    overflow-y: scroll;
+    border: #2c5830 2px solid;
+    padding: 8px;
+    margin-bottom: 30px;
+    overflow-wrap: break-word;
+}
+
+.drop_down_menu{
+    cursor: pointer;
+}
+
+.drop_down_menu:hover{
+    opacity: 0.8;
+}

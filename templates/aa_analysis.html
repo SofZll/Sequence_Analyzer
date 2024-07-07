@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>analyzer</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="btn_left_nav">
+            <a class="a_nav" href="/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+                </svg>
+            </a>
+            <form action='/analysis.html' method='POST' onclick="submit()">
+                <label for="file" class="custom-file-upload select_mrna">DNA and mRNA analyzer</label>
+                <input type="text" style="display: none;" name="file" id="file" value={{file}} required>
+            </form>
+        </div>
+        
+        <div class="a_nav">selected FASTA:
+            <form action='/aa_analysis.html' method='POST' onchange="submit()">
+                <label for="name_file" class="custom-file-upload selected_file">{{file}}</label>
+                <input type="file" name="name_file" id="name_file">
+            </form>
+        </div>
+    </nav>
+    <div class="box_aa">
+        <h1>Aminoacid Chains sequence analyzer</h1>
+        <div class="sequence_aa">
+            <h1 class="title_aa_rna">mRNA sequence</h1>
+            <p class="text_aa_rna">
+                {{mRna}}
+            </p>
+        </div>
+
+            
+    </div>
+    <div class="box_chainAA">
+        <div class="box_list_oligos">
+            <h1>Oligos</h1>
+            <div class="box_btn_oligo">
+                <a href="#" id="btn_oligo_as" class="btn_on" onclick="oligo_as_btn()">ascending order</a>
+                <a href="#" id="btn_oligo_ds" class="btn_off" onclick="oligo_ds_btn()">descending order</a>
+            </div>
+            <ul id="names_oligos_descending">
+                {%for oligo in oligos_ascending%}
+                <li class="row_bow">
+                    {{oligo.get_name()}}
+                </li>
+                {%endfor%}
+            </ul>
+            <ul id="names_oligos_ascending">
+                {%for oligo in oligos_descending%}
+                <li class="row_bow">
+                    {{oligo.get_name()}}
+                </li>
+                {%endfor%}
+            </ul>
+            <div class="selection_code_oligo">
+                <label for="select_oligo" class="label_scroll">Select the OligoPeptide: </label>
+                <select id="select_oligo" name="select_oligo">
+                    <option value="" disabled selected>click here</option>
+                    {%for oligo in oligos_list%}
+                    <option value="{{oligo.get_sequence()}}">{{oligo.get_name()}}</option>
+                    {%endfor%}
+                </select>
+                <form onclick="submitForm_oligo()" class="drop_down_menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24" fill="none">
+
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                        
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                        
+                        <g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M15 10.5C15 12.9853 12.9853 15 10.5 15C8.01472 15 6 12.9853 6 10.5C6 8.01472 8.01472 6 10.5 6C12.9853 6 15 8.01472 15 10.5ZM14.1793 15.2399C13.1632 16.0297 11.8865 16.5 10.5 16.5C7.18629 16.5 4.5 13.8137 4.5 10.5C4.5 7.18629 7.18629 4.5 10.5 4.5C13.8137 4.5 16.5 7.18629 16.5 10.5C16.5 11.8865 16.0297 13.1632 15.2399 14.1792L20.0304 18.9697L18.9697 20.0303L14.1793 15.2399Z" fill="#2c5830"/> </g>
+                        
+                    </svg>
+                </form>
+            </div>
+            <div class="scroll_oligo" id="scroll_oligo">
+                {%if oligo_selected%}
+                {{oligo_selected}}
+                {%else%}
+                no OligoPeptide selected <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none">
+
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                    
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <g id="SVGRepo_iconCarrier"> <path d="M9 17C9.85038 16.3697 10.8846 16 12 16C13.1154 16 14.1496 16.3697 15 17" stroke="#2c5830" stroke-width="1.5" stroke-linecap="round"/> <ellipse cx="15" cy="10.5" rx="1" ry="1.5" fill="#2c5830"/> <ellipse cx="9" cy="10.5" rx="1" ry="1.5" fill="#2c5830"/> <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#2c5830" stroke-width="1.5" stroke-linecap="round"/> </g>
+                    
+                    </svg>
+                {%endif%}
+        
+            </div>
+        </div>
+        <div class="box_list_proteins">
+            <h1>Proteins</h1>
+            <div class="box_btn_protein">
+                <a href="#" id="btn_prt_as" class="btn_on" onclick="protein_as_btn()">ascending order</a>
+                <a href="#" id="btn_prt_ds" class="btn_off" onclick="protein_ds_btn()">descending order</a>
+            </div>
+            <ul id="names_proteins_descending">
+                {%for protein in proteins_ascending%}
+                <li class="row_bow">
+                    {{protein.get_name()}}
+                </li>
+                {%endfor%}
+            </ul>
+            <ul id="names_proteins_ascending">
+                {%for protein in proteins_descending%}
+                <li class="row_bow">
+                    {{protein.get_name()}}
+                </li>
+                {%endfor%}
+            </ul>
+            <div class="selection_code_protein">
+                <label for="select_protein" class="label_scroll">Select the Protein: </label>
+                <select id="select_protein" name="select_protein">
+                    <option value="" disabled selected>click here</option>
+                    {%for protein in proteins_list%}
+                    <option value="{{protein.get_sequence()}}">{{protein.get_name()}}</option>
+                    {%endfor%}
+                </select>
+                <form onclick="submitForm_protein()" class="drop_down_menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" viewBox="0 0 24 24" fill="none">
+
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                        
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                        
+                        <g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M15 10.5C15 12.9853 12.9853 15 10.5 15C8.01472 15 6 12.9853 6 10.5C6 8.01472 8.01472 6 10.5 6C12.9853 6 15 8.01472 15 10.5ZM14.1793 15.2399C13.1632 16.0297 11.8865 16.5 10.5 16.5C7.18629 16.5 4.5 13.8137 4.5 10.5C4.5 7.18629 7.18629 4.5 10.5 4.5C13.8137 4.5 16.5 7.18629 16.5 10.5C16.5 11.8865 16.0297 13.1632 15.2399 14.1792L20.0304 18.9697L18.9697 20.0303L14.1793 15.2399Z" fill="#2c5830"/> </g>
+                        
+                    </svg>
+                </form>
+            </div>
+            <div class="scroll_protein" id="scroll_protein">
+
+                no Protein selected 
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none">
+
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                    
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <g id="SVGRepo_iconCarrier"> <path d="M9 17C9.85038 16.3697 10.8846 16 12 16C13.1154 16 14.1496 16.3697 15 17" stroke="#2c5830" stroke-width="1.5" stroke-linecap="round"/> <ellipse cx="15" cy="10.5" rx="1" ry="1.5" fill="#2c5830"/> <ellipse cx="9" cy="10.5" rx="1" ry="1.5" fill="#2c5830"/> <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" stroke="#2c5830" stroke-width="1.5" stroke-linecap="round"/> </g>
+                    
+                </svg>
+        
+            </div>
+        </div> 
+    </div>
+
+
+    <script>
+        function oligo_as_btn() {
+            document.getElementById('names_oligos_ascending').style.display = 'block';
+            document.getElementById('names_oligos_descending').style.display = 'none';
+            $('#btn_oligo_ds').removeClass('btn_on');
+            $('#btn_oligo_as').addClass('btn_on');
+            $('#btn_oligo_ds').addClass('btn_off');
+            $('#btn_oligo_as').removeClass('btn_off');
+            
+        }
+
+        function oligo_ds_btn() {
+            document.getElementById('names_oligos_descending').style.display = 'block';
+            document.getElementById('names_oligos_ascending').style.display = 'none';
+            $('#btn_oligo_ds').addClass('btn_on');
+            $('#btn_oligo_as').removeClass('btn_on');
+            $('#btn_oligo_ds').removeClass('btn_off');
+            $('#btn_oligo_as').addClass('btn_off');
+        }
+
+        function protein_as_btn() {
+            document.getElementById('names_proteins_ascending').style.display = 'block';
+            document.getElementById('names_proteins_descending').style.display = 'none';
+            $('#btn_prt_as').addClass('btn_on');
+            $('#btn_prt_ds').removeClass('btn_on');
+            $('#btn_prt_as').removeClass('btn_off');
+            $('#btn_prt_ds').addClass('btn_off');
+        }
+
+        function protein_ds_btn() {
+            document.getElementById('names_proteins_descending').style.display = 'block';
+            document.getElementById('names_proteins_ascending').style.display = 'none';
+            $('#btn_prt_ds').addClass('btn_on');
+            $('#btn_prt_as').removeClass('btn_on');
+            $('#btn_prt_ds').removeClass('btn_off');
+            $('#btn_prt_as').addClass('btn_off');
+        }
+
+        function submitForm_protein() {
+            let value = document.getElementById('select_protein').value;
+            document.getElementById('scroll_protein').innerHTML = value;
+        }
+
+        function submitForm_oligo() {
+            let value = document.getElementById('select_oligo').value;
+            document.getElementById('scroll_oligo').innerHTML = value;
+        }
+    </script>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
+    <body>
+        <div class="box_home">
+            <div class="title_home">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100px" height="100px" viewBox="0 0 24 24" fill="none">
+
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                    
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <g id="SVGRepo_iconCarrier"> <path d="M19 21C19 20.663 18.9818 20.3293 18.9463 20M5 3C5 3.33701 5.01817 3.67071 5.0537 4M5 21C5 16.8566 7.74671 13.2152 11.7307 12.077L12.2693 11.923C16.2533 10.7848 19 7.14339 19 3M15 4H5.0537M12.5 8H6.46206M9 20H18.9463M11.5 16H17.5379M18.9463 20C18.7899 18.5509 18.2974 17.187 17.5379 16M17.5379 16C16.3482 14.1405 14.5033 12.7152 12.2693 12.077L11.7307 11.923C9.49674 11.2848 7.65184 9.8595 6.46206 8M5.0537 4C5.21006 5.44909 5.70259 6.81301 6.46206 8" stroke="#2c5830" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
+                    
+                </svg>
+                <h1>Sequence analyzer</h1>
+            </div>
+            
+            <div class="select_file">
+                <form class="form_btn" action='/submit' method='POST'>
+                    <label for="file" class="custom-file-upload btn_home_select">select FASTA file</label>
+                    <input type="file" name="file" id="file">
+
+                    <button type="submit" name="action" value="dna_mrna" class="btn_analyzer">DNA & mRNA analyzer</button>
+                    <button type="submit" name="action" value="aa_chain" class="btn_analyzer">Aminoacid Chains analyzer</button>
+                </form>
+            </div>
+        </div>
+        
+        
+        
+        {%if message%}
+        <div id="cssPopup" class="overlay">
+            <div class="popup">
+                <h2>Warning</h2>
+                <a class="close" href="#" onclick="document.getElementById('cssPopup').style.display = 'none';">&times;</a>
+                <div class="content">
+                    {{message}}
+                </div>
+            </div>
+        </div>
+        {%endif%}
+    </body>
+</html>
