@@ -4,6 +4,7 @@ A DNA sequence analyzer of FASTA file.
 
 *Programming team project - University of Bologna (Bachelor Genomics, a.y. 2023-2024)*
 
+
 <div style="display: flex; justify-content: center; flex-wrap: wrap;">
   <img src="doc/img/HomePage.png" alt="Homepage screenshot" width="350" />
 </div>
