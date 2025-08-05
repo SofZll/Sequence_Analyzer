@@ -45,6 +45,7 @@ The alowed FASTA file extension are: *.fasta*, *.fna*, and *.fa*.
   <img src="https://img.shields.io/badge/Backend-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
 </p>
+
 ## to Run the Code
 ```bash
 python3 Sequence_Analyzer.py
