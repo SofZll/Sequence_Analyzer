@@ -4,6 +4,12 @@ A DNA sequence analyzer of FASTA file.
 
 *Programming team project - University of Bologna (Bachelor Genomics, a.y. 2023-2024)*
 
+<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+  <img src="doc/img/HomePage.png" alt="Homepage screenshot" width="350" />
+  <img src="doc/img/TranslationTranscriptionPage.png" alt="Transcription and Translation page screenshot" width="350" /> 
+  <img src="doc/img/AminoacidChainsPage.png" alt="Aminoacid Chains page screenshot" width="350" /> 
+</div>
+
 ## Contributors
 
 - Sofia Zanelli: [@SofZll](https://github.com/SofZll)
