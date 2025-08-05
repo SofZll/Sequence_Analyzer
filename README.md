@@ -12,6 +12,22 @@ A DNA sequence analyzer of FASTA file.
   <img src="doc/img/AminoacidChainsPage.png" alt="Aminoacid Chains page screenshot" width="350" /> 
 </div>
 
+## Stack
+<!-- Frontend -->
+<p>
+  <span style="background-color: #555; color: white; padding: 5px 10px; border-radius: 5px;">Frontend</span>
+  <span style="background-color: #e34c26; color: white; padding: 5px 10px; border-radius: 5px;">HTML</span>
+  <span style="background-color: #264de4; color: white; padding: 5px 10px; border-radius: 5px;">CSS</span>
+  <span style="background-color: #f0db4f; color: black; padding: 5px 10px; border-radius: 5px;">JavaScript</span>
+</p>
+
+<!-- Backend -->
+<p>
+  <span style="background-color: #555; color: white; padding: 5px 10px; border-radius: 5px;">Backend</span>
+  <span style="background-color: #3776AB; color: white; padding: 5px 10px; border-radius: 5px;">Python</span>
+  <span style="background-color: #000000; color: white; padding: 5px 10px; border-radius: 5px;">Flask</span>
+</p>
+
 ## Contributors
 
 - Sofia Zanelli: [@SofZll](https://github.com/SofZll)
@@ -30,6 +46,8 @@ Web App that given a FASTA file is able to:
 ## Input
 The input consists of the complete genome sequence previously saved in the directory *"./fasta_file"*.
 The alowed FASTA file extension are: *.fasta*, *.fna*, and *.fa*.
+
+
 
 
 ## to Run the Code
