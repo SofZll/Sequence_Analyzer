@@ -15,17 +15,15 @@ A DNA sequence analyzer of FASTA file.
 ## Stack
 <!-- Frontend -->
 <p>
-  <span style="background-color: #555; color: white; padding: 5px 10px; border-radius: 5px;">Frontend</span>
-  <span style="background-color: #e34c26; color: white; padding: 5px 10px; border-radius: 5px;">HTML</span>
-  <span style="background-color: #264de4; color: white; padding: 5px 10px; border-radius: 5px;">CSS</span>
-  <span style="background-color: #f0db4f; color: black; padding: 5px 10px; border-radius: 5px;">JavaScript</span>
+  <img src="https://img.shields.io/badge/Frontend-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-264de4?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
 </p>
 
 <!-- Backend -->
 <p>
-  <span style="background-color: #555; color: white; padding: 5px 10px; border-radius: 5px;">Backend</span>
-  <span style="background-color: #3776AB; color: white; padding: 5px 10px; border-radius: 5px;">Python</span>
-  <span style="background-color: #000000; color: white; padding: 5px 10px; border-radius: 5px;">Flask</span>
+  <img src="https://img.shields.io/badge/Backend-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
 </p>
 
 ## Contributors
