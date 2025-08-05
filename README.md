@@ -7,8 +7,11 @@ A DNA sequence analyzer of FASTA file.
 ## Contributors
 
 Sofia Zanelli: [@SofZll](https://github.com/SofZll)
+
 Christian Guernelli: [@Jupiter929](https://github.com/Jupiter929)
+
 Giulia Mengoni: [@GiuliaMengoni](https://github.com/GiuliaMengoni)
+
 Nicolas Schiappa: [@NickSapphire](https://github.com/NickSapphire)
 
 ## Description
