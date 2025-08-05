@@ -5,6 +5,7 @@ A DNA sequence analyzer of FASTA file.
 *Programming team project - University of Bologna (Bachelor Genomics, a.y. 2023-2024)*
 
 ## Contributors
+
 Sofia Zanelli: [@SofZll](https://github.com/SofZll)
 Christian Guernelli: [@Jupiter929](https://github.com/Jupiter929)
 Giulia Mengoni: [@GiuliaMengoni](https://github.com/GiuliaMengoni)
